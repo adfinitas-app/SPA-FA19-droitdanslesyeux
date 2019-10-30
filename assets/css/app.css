@@ -108,20 +108,31 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 
 .header {
-	padding: 2%;
+	min-height: 100vh;
 	background-color: transparent;
-	overflow: hidden;
-	min-height: 900px;
 	position: relative;
 }
 #videoBg {
-	height: 100%;
 	z-index: -1;
-	position: absolute;
-	top: 0; bottom: 0; left: 0; right: 0;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
 }
-.header > div {
-	padding-top: 220px;
+.header .nav {
+	width: 100%;
+	z-index: -1;
+	padding: 2%;
+	position: fixed;
+	top: 20px;
+}
+.header .content {
+	z-index: -1;
+	position: fixed;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .header h1 {
 	font-family: "Adopte Bold", serif;
@@ -141,6 +152,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 
 .bandeau {
 	padding: 90px 10px;
+	background-color: white;
 }
 .bandeau p {
 	font-family: "Open Sans", serif;
@@ -426,6 +438,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 
 
 .tshirt-container {
+	background-color: white;
 	text-align: center;
 }
 .tshirt-container .left {
@@ -488,6 +501,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 
 footer {
+	background-color: white;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }

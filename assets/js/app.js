@@ -13,7 +13,6 @@ var imgTShirt = [
 preload(imgTShirt)
 
 $('input[type=radio][name=choice]').change(function() {
-    console.log(this.value)
     if (this.value === 'chien') {
         $('#t-shirt').attr('src', imgTShirt[0])
     }
