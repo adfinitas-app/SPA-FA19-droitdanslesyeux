@@ -444,6 +444,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 
 
 .tshirt-container {
+	overflow: hidden;
 	position: relative;
 	background-color: white;
 	text-align: center;
@@ -511,7 +512,8 @@ footer {
 	position: relative;
 	background-color: white;
 	padding-top: 10px;
-	padding-bottom: 60px;
+	padding-bottom: 10px;
+	overflow: hidden;
 }
 .footer .img img {
 	max-width: 40px;
