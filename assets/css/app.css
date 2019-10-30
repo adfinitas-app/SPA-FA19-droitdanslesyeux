@@ -113,7 +113,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 	position: relative;
 }
 #videoBg {
-	z-index: -1;
+	z-index: 0;
 	position: fixed;
 	right: 0;
 	bottom: 0;
@@ -122,13 +122,13 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 .header .nav {
 	width: 100%;
-	z-index: -1;
+	z-index: 0;
 	padding: 2%;
 	position: fixed;
 	top: 20px;
 }
 .header .content {
-	z-index: -1;
+	z-index: 0;
 	position: fixed;
 	top: 60%;
 	left: 50%;
@@ -151,6 +151,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 
 .bandeau {
+	position: relative;
 	padding: 90px 10px;
 	background-color: white;
 }
@@ -164,6 +165,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 
 
 .slide {
+	position: relative;
 	background-size: cover;
 	background-position: center;
 	padding: 3%;
@@ -234,6 +236,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 
 .bandeau-orange {
+	position: relative;
 	padding-top: 5%;
 	padding-bottom: 5%;
 	background-color: #EF5713;
@@ -283,6 +286,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 
 .bandeau-white {
+	position: relative;
 	padding-top: 3%;
 	padding-bottom: 3%;
 	background-color: white;
@@ -317,8 +321,10 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 
 
 .section-don {
-	display: inline-flex;
+	position: relative;
+	display: flex;
 	width: 100%;
+	background-color: #1B1B16;
 }
 .section-don .right {
 	width: 50%;
@@ -438,6 +444,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 
 
 .tshirt-container {
+	position: relative;
 	background-color: white;
 	text-align: center;
 }
@@ -501,6 +508,7 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 
 footer {
+	position: relative;
 	background-color: white;
 	padding-top: 10px;
 	padding-bottom: 10px;
