@@ -1,10 +1,3 @@
-$(document).foundation();
-
-$(document).ready( function() {
-    fillLink()
-
-});
-
 var imgTShirt = [
     "https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/t-shirt-dog.png",
     "https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/t-shirt-cat.png"
@@ -12,15 +5,122 @@ var imgTShirt = [
 
 preload(imgTShirt)
 
+$(document).foundation();
+
+$(document).ready( function() {
+    fillLink()
+    handleAnimate()
+
+    setTimeout(function(){
+        $('.header .content').fadeIn('slow')
+    }, 12000);
+
+
+
+});
+
+
+var checkBandeauOrange = false;
+var checkSlide1 = false;
+var checkSlide2 = false;
+var checkSlide3 = false;
+
+$(window).scroll(function() {
+    handleAnimate()
+});
+
+function handleAnimate() {
+    var height = $(window).scrollTop();
+    var heightBandeauOrange = $('#bandeau-orange').offset().top - ($('#bandeau-orange').height())
+    var heightslide1 = $('#slide1').offset().top - ($('#slide1').height())
+    var heightslide2 = $('#slide2').offset().top - ($('#slide2').height())
+    var heightslide3 = $('#slide3').offset().top - ($('#slide3').height())
+
+    if(height  > heightBandeauOrange && !checkBandeauOrange) {
+        animateNumber()
+        checkBandeauOrange = true
+    }
+    if(height  > heightslide1 && !checkSlide1) {
+        textAppear(0)
+        checkSlide1 = true
+    }
+    if(height  > heightslide2 && !checkSlide2) {
+        textAppear(1)
+        checkSlide2 = true
+    }
+    if(height  > heightslide3 && !checkSlide3) {
+        textAppear(2)
+        checkSlide3 = true
+    }
+}
+
+function textAppear(nb) {
+    $('.slide').eq(nb).find('.text').slideDown('slow')
+}
+
+
+var imgCheck = [
+    "https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/check.png",
+    "https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/check-not.png"
+]
+
 $('input[type=radio][name=choice]').change(function() {
     if (this.value === 'chien') {
+        $('#check1').attr('src', imgCheck[0])
+        $('#check2').attr('src', imgCheck[1])
         $('#t-shirt').attr('src', imgTShirt[0])
     }
     else if (this.value === 'chat') {
+        $('#check1').attr('src', imgCheck[1])
+        $('#check2').attr('src', imgCheck[0])
         $('#t-shirt').attr('src', imgTShirt[1])
     }
 });
 
+
+
+function animateNumber() {
+    var nb = [
+        44147,
+        102585,
+        12182,
+    ]
+
+    $('.numberAnimate').each(function () {
+        var $this = $(this);
+        var index = $('.numberAnimate').index($(this))
+
+        $({ Counter: 0 }).animate({
+            Counter: nb[index] }, {
+            duration: 3500,
+            easing: 'swing',
+            step: function () {
+                $this.text(
+                    getDisplayNumber(Math.ceil(this.Counter))
+
+                );
+            }
+        });
+    });
+}
+
+function getDisplayNumber(i) {
+    var nb = i.toString()
+
+    if (nb.length === 4) {
+        return nb.slice(0, 1) + " " + nb.slice(1, nb.length)
+    }
+    else if (nb.length === 5) {
+        return nb.slice(0, 2) + " " + nb.slice(2, nb.length)
+    }
+    else if (nb.length === 6) {
+        return nb.slice(0, 3) + " " + nb.slice(3, nb.length)
+    }
+    else if (nb.length === 7) {
+        return nb.slice(0, 4) + " " + nb.slice(4, nb.length)
+    }
+    return nb
+}
 
 
 $(document).on('closed', '.remodal', function (e) {
@@ -40,17 +140,26 @@ function preload(arguments) {
     }
 }
 
+function scrollNext(next) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: next.offset().top
+    }, 800, function(){
+
+    });
+}
+
 function changeAmountDon(donateur) {
     if (donateur) {
-        console.log($('#don1 .euro .nb').eq(0).val())
-        $('#don1 .euro .nb').eq(0).val('90')
-        $('#don1 .euro .nb').eq(1).html('27<span>,20</span>')
+        $('#nb1').text('90')
+        $('#small-nb1').text('31')
 
-        $('#don2 .euro .nb').eq(0).val('120')
-        $('#don2 .euro .nb').eq(1).html('27<span>,20</span>')
+        $('#nb2').text('120')
+        $('#small-nb2').text('41')
 
-        $('#don3 .euro .nb').eq(0).val('170')
-        $('#don3 .euro .nb').eq(1).html('27<span>,20</span>')
+        $('#nb3').text('170')
+        $('#small-nb3').text('54')
     }
 }
 

@@ -98,6 +98,15 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 	font-family: 'Helvetica Neue Bold', serif;
 	text-transform: uppercase;
 	font-weight: bold;
+
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+	transition: all 0.4s ease-out;
+}
+
+.button.custom:hover {
+	transform: scale(1.05);
 }
 .button.custom.transparent {
 	background-color: transparent;
@@ -117,21 +126,25 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 	position: fixed;
 	right: 0;
 	min-width: 100%;
-	height: 80vh;
+	min-height: 80vh;
 }
 .header .nav {
+	z-index: 4;
 	width: 100%;
-	z-index: 0;
 	padding: 2%;
 	position: fixed;
 	top: 20px;
 }
 .header .content {
+	display: none;
 	z-index: 0;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+.header .scroller {
+	margin-top: 15px;
 }
 .header h1 {
 	font-family: "Adopte Bold", serif;
@@ -168,10 +181,10 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 	background-size: cover;
 	background-position: center;
 	padding: 3%;
-	min-height: 600px;
 }
 .slide .text {
 	max-width: 295px;
+	display: none;
 }
 .slide h6 {
 	font-family: "Adopte Bold", serif;
@@ -192,16 +205,19 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 .slide.un {
 	background-image: url("https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/bg-slide-1.jpg");
+	min-height: 770px;
 }
 .slide.deux {
 	background-image: url("https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/bg-slide-2.jpg");
 	text-align: right;
+	min-height: 770px;
 }
 .slide.deux .text {
 	margin-left: auto;
 }
 .slide.trois {
 	background-image: url("https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/bg-slide-3.jpg");
+	min-height: 875px;
 }
 
 #modalVideo {
@@ -354,13 +370,14 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 }
 
 .box-don .reduction {
+	margin-bottom: 10px;
 }
 .box-don .euro, .box-don .apres {
 	display: inline-block;
 }
 .box-don .apres {
 	color: #F98203 !important;
-	margin-bottom: 20px;
+	margin-bottom: 0;
 	font-weight: 700 !important;
 	vertical-align: middle !important;
 }
@@ -489,6 +506,34 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 .tshirt-container .container-choice form input {
 	margin: 0;
 }
+
+form input{
+	display: none !important;
+}
+
+form .label_item {
+}
+
+form .radio_item:checked + label {
+	opacity: 1;
+}
+
+.image-radio {
+	cursor: pointer;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 4px solid transparent;
+	margin-bottom: 0;
+	outline: 0;
+}
+.image-radio input[type="radio"] {
+	display: none;
+}
+.image-radio-checked {
+}
+
+
 .tshirt-container .container-choice p {
 	margin-bottom: 10px;
 }
@@ -505,6 +550,15 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 .tshirt-container .right {
 	height: 650px;
 	overflow: hidden;
+}
+#t-shirt {
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+	transition: all 0.4s ease-out;
+}
+#t-shirt:hover {
+	transform: scale(1.50);
 }
 
 footer {
@@ -544,5 +598,166 @@ footer {
 	margin-top: 0 !important;
 }
 @media screen and (max-width: 1024px) {
+	.header .content {
+		padding-top: 180px;
+		z-index: 10;
+		transform: none;
+		position: relative;
+		width: 100%;
+		top: auto; left:  auto;
+	}
 
+	.bandeau-orange .left {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.bandeau-white h4 {
+		font-size: 80px;
+	}
+
+	.section-don {
+		display: block;
+	}
+	.box-don.big {
+		width: 100%;
+		min-height: 685px;
+		padding-top: 220px;
+	}
+	.section-don .right {
+		width: 100%;
+	}
+	.box-don.small {
+		width: 100%;
+	}
+	.tshirt-container .left {
+		padding-top: 20px;
+	}
+	.tshirt-container .container-choice {
+		margin: 40px auto 40px;
+	}
+	.tshirt-container .right {
+		height: auto;
+		padding-top: 100px;
+	}
+
+}
+@media screen and (max-width: 640px) {
+	.header h1 {
+		font-size: 52px;
+	}
+
+	.header .nav {
+		position: relative;
+	}
+
+	.header .content {
+		padding-top: 120px;
+	}
+
+	.header h1:nth-child(1) {
+		font-size: 22px;
+	}
+
+	#videoBg {
+		min-height: 400px;
+	}
+
+	.button.custom.transparent {
+		width: 80%;
+	}
+
+	.bandeau-orange .left h3 {
+		font-size: 40px;
+	}
+
+	.box-don .button.custom {
+		width: 80%;
+	}
+
+	.bandeau {
+		padding: 20px 10px;
+	}
+
+	.bandeau p {
+		font-size: 22px;
+		margin-bottom: 0;
+	}
+
+	.slide .text p {
+		font-size: 18px;
+	}
+
+	.slide.un {
+		min-height: 610px;
+	}
+
+	.slide.deux {
+		min-height: 610px;
+		background-position: 30% 50%;
+	}
+
+	.slide.trois {
+		min-height: 720px;
+	}
+
+	.bandeau-orange .left p {
+		font-size: 20px;
+	}
+	.bandeau-orange .right {
+		text-align: center;
+	}
+	.bandeau-orange .right .box {
+		margin-bottom: 25px;
+	}
+	.bandeau-orange .right .box div {
+		display: block;
+		margin: 0 auto;
+	}
+	.bandeau-orange .right .box .text p {
+		font-size: 15px;
+	}
+	.bandeau-white .title p {
+		font-size: 22px;
+	}
+	.bandeau-white h4 {
+		font-size: 48px;
+		line-height: 1;
+	}
+	.box-don {
+		text-align: center;
+	}
+	.box-don .euro.big p.nb {
+		font-size: 135px !important;
+	}
+	.box-don.small .euro.big p.nb {
+		font-size: 110px !important;
+	}
+	.box-don.big {
+		padding-top: 90px;
+		min-height: 540px;
+	}
+	.box-don .button.custom {
+		width: 95%;
+	}
+	.box-don .equivalence {
+		font-size: 18px;
+	}
+	.tshirt-container .left h6 {
+		font-size: 40px;
+	}
+	.tshirt-container .left p {
+		font-size: 16px;
+	}
+	.tshirt-container .right {
+		padding-top: 0;
+	}
+	.tshirt-container .container-choice p.precis {
+		margin-bottom: 0;
+	}
+	.tshirt-container .container-choice {
+		margin: 40px auto 0;
+	}
+	#t-shirt:hover {
+		transform: scale(1);
+	}
 }

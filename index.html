@@ -21,101 +21,102 @@
 	<link rel='stylesheet' href='assets/css/remodal-default-theme.css' type='text/css'/>
 	<link rel='stylesheet' href='assets/css/remodal.css' type='text/css'/>
 
-	
+
 </head>
 <body>
-    <!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-TKV7DN');</script>
-	<!-- End Google Tag Manager -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TKV7DN');</script>
+<!-- End Google Tag Manager -->
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKV7DN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
 <div id="modalVideo" class="remodal" data-remodal-id="modalVideo">
 	<button data-remodal-action="close" class="remodal-close"></button>
-
 	<div class="container-video">
-
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/TlqkVuQrUCI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 	</div>
 </div>
 <section>
 	<div class="row expanded header">
-		<video autoplay muted loop id="videoBg">
+		<video autoplay muted id="videoBg">
 			<source src="assets/video/bg.mp4" type="video/mp4">
 		</video>
 		<div class="nav">
-			<img class="float-left" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/logo.png" alt="logo SPA" />
+			<a href="https://www.la-spa.fr/" target="_blank"><img class="float-left" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/logo.png" alt="logo SPA" /></a>
 			<a class="button custom float-right link-don commun" href="https://soutenir.la-spa.fr/" target="_blank">
 				je fais un don
 			</a>
 		</div>
-		<div class="content row max-width text-center">
-			<h1>REGARDEZ<br />leur souffrance</h1>
-			<h1>droit dans<br />les yeux</h1>
-			<a class="button custom transparent" data-remodal-target="modalVideo">
-				voir la vidéo
-			</a>
+		<div class="content text-center">
+			<div class="row max-width text-center">
+				<h1>REGARDEZ<br />leur souffrance</h1>
+				<h1>droit dans<br />les yeux</h1>
+				<a class="button custom transparent" data-remodal-target="modalVideo">
+					voir la vidéo
+				</a>
+			</div>
+			<a class="scroller" onclick="scrollNext($('#bandeau-white-first'))" href="" title="Cliquez pour voir la suite"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down-white.png"/></a>
 		</div>
+
 	</div>
 </section>
 <section>
-	<div class="row expanded bandeau">
+	<div class="row expanded bandeau" id="bandeau-white-first">
 		<div class="row max-width text-center">
 			<p>Après l’abandon ou la maltraitance,<br />n’ont-ils pas droit à l’adoption ?</p>
 		</div>
 	</div>
 </section>
 <section>
-	<div class="row expanded slide un">
+	<div class="row expanded slide un" id="slide1">
 		<div class="small-12 medium-11 medium-offset-1 columns">
 			<div class="text">
 				<h6>JADE</h6>
 				<p>Abandonnée à plusieurs reprises parce qu’elle a du mal à tenir en place, Jade est une chienne très douce et gentille avec les humains. Malgré ses indéniables qualités, elle risque d’attendre plus longtemps que nos autres protégés avant de trouver une famille. Ses légers problèmes de comportement et le traitement qu’elle doit prendre pour s’apaiser découragent les futurs adoptants…</p>
-				<a href="" title="Cliquez pour lire plus"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down-white.png"/></a>
+				<a class="scroller" onclick="scrollNext($('#slide2'))" href="" title="Cliquez pour voir la suite"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down-white.png"/></a>
 			</div>
 		</div>
 	</div>
 </section>
 <section>
-	<div class="row expanded slide deux">
+	<div class="row expanded slide deux" id="slide2">
 		<div class="small-12 medium-11 columns">
-			<h6>DANIELS</h6>
 			<div class="text">
+				<h6>DANIELS</h6>
 				<p>Un chat noir, ça porte malheur »… on pourrait sourire de certaines superstitions si elles ne condamnaient pas d’innocents animaux comme le pauvre Daniels. Ce chat noir né en 2017 n’a jamais connu d’autre foyer que notre refuge. Certes, il se sent bien auprès de nos bénévoles attentionnés. Mais après 2 ans de vie en collectivité, n’a-t-il pas le droit de trouver lui aussi sa propre famille ?</p>
-				<a href="" title="Cliquez pour lire plus"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down-white.png"/></a>
+				<a class="scroller" onclick="scrollNext($('#slide3'))" href="" title="Cliquez pour voir la suite"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down-white.png"/></a>
 			</div>
 		</div>
 	</div>
 </section>
 <section>
-	<div class="row expanded slide trois">
+	<div class="row expanded slide trois" id="slide3">
 		<div class="small-12 medium-11 medium-offset-1 columns">
 			<div class="text">
 				<h6>SATINE</h6>
 				<p>Comme tous les « hyper sensibles », Satine a beaucoup d’amour à donner… à qui sait faire preuve de douceur et de patiente. Malheureusement, comme la plupart des animaux de nos refuges qui ont un pelage noir, elle suscite moins l’intérêt des potentiels adoptants. Et quand ces derniers s’aperçoivent qu’elle est en outre très craintive, ils s’en détournent inéluctablement. Pourtant, vivre au sein d’une famille aimante apaiserait son émotivité et lui ferait le plus grand bien.</p>
-				<a href="" title="Cliquez pour lire plus"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down-white.png"/></a>
+				<a class="scroller" onclick="scrollNext($('#bandeau-orange'))" href="" title="Cliquez pour voir la suite"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down-white.png"/></a>
 			</div>
 		</div>
 	</div>
 </section>
 <section>
-	<div class="row expanded bandeau-orange">
+	<div class="row expanded bandeau-orange" id="bandeau-orange">
 		<div class="row max-width">
 			<div class="small-12 large-6 columns left">
 				<h3>Échapper à<br />la souffrance</h3>
 				<img alt="" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/line-white.png" />
 				<p>un droit pour tous<br />les animaux !</p>
 			</div>
-			<div class="small-12 large-6 columns right">
+			<div class="small-12 medium-offset-2 medium-10 large-offset-0 large-6 columns right end">
 				<div class="row box">
 					<div class="img">
 						<img alt="" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/echapper-icon-1.png" />
 					</div>
 					<div class="text">
-						<p class="number">44 147</p>
+						<p class="number numberAnimate">0</p>
 						<p>animaux recueillis dans les 62 refuges<br />
 							et maisons SPA par nos 40 000 bénévoles.</p>
 					</div>
@@ -125,7 +126,7 @@
 						<img alt="" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/echapper-icon-2.png" />
 					</div>
 					<div class="text">
-						<p class="number">102 585</p>
+						<p class="number numberAnimate">0</p>
 						<p>animaux soignés et bénéficiant des soins<br />
 							de la SPA. 45 vétérinaires salariés exerçant<br />
 							dans nos 12 dispensaires et 15 refuges.</p>
@@ -136,7 +137,7 @@
 						<img alt="" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/echapper-icon-3.png" />
 					</div>
 					<div class="text">
-						<p class="number">12 182</p>
+						<p class="number numberAnimate">0</p>
 						<p>animaux recueillis au cours<br />
 							de l’hiver 2019.</p>
 					</div>
@@ -152,14 +153,16 @@
 			<div class="row">
 				<div class="small-12 medium-offset-2 medium-8 columns title">
 					<p>Offrez aux animaux<br />le droit d’être protégés et aimés</p>
-					<img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/dec.png" alt="Don en confiance">
+					<a href="http://www.donenconfiance.org/offres/doc_inline_src/759/CP_donenconfiance_labellisation_SPA_01062016.pdf" target="_blank">
+						<img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/dec.png" alt="Don en confiance">
+					</a>
 				</div>
 			</div>
 			<div class="row">
 				<h4>Faites un don à la SPA !</h4>
 			</div>
 			<div class="row text-center arrow">
-				<a href=""><img alt="" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down.png" /></a>
+				<a class="scroller" onclick="scrollNext($('#don1'))" href="" title="Cliquez pour voir la suite"><img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/arrow-down.png"/></a>
 			</div>
 		</div>
 	</div>
@@ -168,12 +171,12 @@
 	<div class="row expanded section-don">
 		<div class="box-don big un text-center" id="don1">
 			<div class="euro big">
-				<p class="nb">90</p>
+				<p class="nb" id="nb1">60</p>
 				<p>€</p>
 			</div>
 			<div class="reduction">
 				<div class="euro">
-					<p class="nb">27<span>,20</span></p>
+					<p class="nb" id="small-nb1">20</p>
 					<p>€</p>
 				</div>
 				<p class="apres">après réduction<br />fiscale</p>
@@ -185,12 +188,12 @@
 		</div><div class="right">
 		<div class="box-don deux small" id="don2">
 			<div class="euro big">
-				<p class="nb">60</p>
+				<p class="nb" id="nb2">90</p>
 				<p>€</p>
 			</div>
 			<div class="reduction">
 				<div class="euro">
-					<p class="nb">20<span>,40</span></p>
+					<p class="nb" id="small-nb2">31</p>
 					<p>€</p>
 				</div>
 				<p class="apres">après réduction<br />fiscale</p>
@@ -201,12 +204,12 @@
 			</a>
 		</div><div class="box-don trois small" id="don3">
 		<div class="euro big">
-			<p class="nb">120</p>
+			<p class="nb" id="nb3">120</p>
 			<p>€</p>
 		</div>
 		<div class="reduction">
 			<div class="euro">
-				<p class="nb">40<span>,80</span></p>
+				<p class="nb" id="small-nb3">54</p>
 				<p>€</p>
 			</div>
 			<p class="apres">après réduction<br />fiscale</p>
@@ -231,10 +234,12 @@
 				<form>
 					<label >
 						<input type="radio" name="choice" value="chien" checked>
+						<img id="check1" alt="" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/check.png">
 						Chien
 					</label>
 					<label >
 						<input type="radio" name="choice" value="chat">
+						<img id="check2" alt="" src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/check-not.png">
 						Chat
 					</label>
 
@@ -255,10 +260,10 @@
 	<div class="row expanded footer">
 		<div class="row max-width">
 			<div class="large-2 columns text-center img">
-				<a href="" target="_blank">
+				<a href="https://www.la-spa.fr/" target="_blank">
 					<img src="https://s3.amazonaws.com/heroku-adfinitas-campaign/spa-legestequisauve/logo.png" alt="Logo la SPA">
 				</a>
-				<a href="" target="_blank">
+				<a href="http://www.donenconfiance.org/offres/doc_inline_src/759/CP_donenconfiance_labellisation_SPA_01062016.pdf" target="_blank">
 					<img src="https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/dec.png" alt="Don en confiance">
 				</a>
 			</div>
