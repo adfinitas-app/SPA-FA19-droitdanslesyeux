@@ -10,35 +10,64 @@ $(document).foundation();
 $(document).ready( function() {
     fillLink()
     handleAnimate()
+    changeLinkTShirt(0)
 
     setTimeout(function(){
         $('.header .content').fadeIn('slow')
     }, 12000);
 
-
+    handleNavBar()
 
 });
 
 
 var checkBandeauOrange = false;
+var checkBandeauWhite = false;
 var checkSlide1 = false;
 var checkSlide2 = false;
 var checkSlide3 = false;
 
 $(window).scroll(function() {
     handleAnimate()
+    handleNavBar()
 });
+
+function handleNavBar() {
+    var height = $(window).scrollTop();
+
+    if ($(window).width() <= 640) {
+        if (height > 100) {
+            $('.header .nav').css('background-color', 'white')
+        }
+        else {
+            $('.header .nav').css('background-color', 'transparent')
+        }
+    }
+}
 
 function handleAnimate() {
     var height = $(window).scrollTop();
-    var heightBandeauOrange = $('#bandeau-orange').offset().top - ($('#bandeau-orange').height())
+    var heightShare = $('#header').height()
+    var heightBandeauOrange = $('#bandeau-orange').offset().top  - ($('#bandeau-orange').height())
+    var heightBandeauWhite = $('#bandeau-white-first').offset().top / 4 - ($('#bandeau-white-first').height())
     var heightslide1 = $('#slide1').offset().top - ($('#slide1').height())
     var heightslide2 = $('#slide2').offset().top - ($('#slide2').height())
     var heightslide3 = $('#slide3').offset().top - ($('#slide3').height())
 
+    if (height > heightShare / 2) {
+        $('#share').fadeIn()
+    }
+    else {
+        $('#share').fadeOut()
+    }
     if(height  > heightBandeauOrange && !checkBandeauOrange) {
         animateNumber()
         checkBandeauOrange = true
+    }
+    if(height > heightBandeauWhite && !checkBandeauWhite) {
+        $('.bandeau p').slideDown('slow')
+
+        checkBandeauWhite = true
     }
     if(height  > heightslide1 && !checkSlide1) {
         textAppear(0)
@@ -55,7 +84,18 @@ function handleAnimate() {
 }
 
 function textAppear(nb) {
-    $('.slide').eq(nb).find('.text').slideDown('slow')
+    var el = $('.slide').eq(nb).find('.text')
+    var height = $('.slide').eq(nb).height()
+
+    el.css('top', -(height + 100))
+
+    el.fadeIn('slow').animate({
+        top:0
+    }, 1000, 'swing', function() {
+    });
+
+
+
 }
 
 
@@ -64,16 +104,38 @@ var imgCheck = [
     "https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/check-not.png"
 ]
 
-$('input[type=radio][name=choice]').change(function() {
-    if (this.value === 'chien') {
+function changeLinkTShirt(mode) {
+    let string = 'https://soutenir.la-spa.fr/b'
+
+    if (mode === 0) { //CHIEN
+        string += '?cid=231'
+        string += getUserInUrl()
+
         $('#check1').attr('src', imgCheck[0])
         $('#check2').attr('src', imgCheck[1])
         $('#t-shirt').attr('src', imgTShirt[0])
+
+        $('#don-tshirt').attr('href', string)
     }
-    else if (this.value === 'chat') {
+    else { //CHAT
+        string += '?cid=232'
+        string += getUserInUrl()
+
         $('#check1').attr('src', imgCheck[1])
         $('#check2').attr('src', imgCheck[0])
         $('#t-shirt').attr('src', imgTShirt[1])
+
+        $('#don-tshirt').attr('href', string)
+    }
+}
+
+$('input[type=radio][name=choice]').change(function() {
+
+    if (this.value === 'chien') {
+        changeLinkTShirt(0)
+    }
+    else if (this.value === 'chat') {
+        changeLinkTShirt(1)
     }
 });
 
@@ -92,7 +154,7 @@ function animateNumber() {
 
         $({ Counter: 0 }).animate({
             Counter: nb[index] }, {
-            duration: 3500,
+            duration: 1500,
             easing: 'swing',
             step: function () {
                 $this.text(
@@ -163,6 +225,31 @@ function changeAmountDon(donateur) {
     }
 }
 
+function getUserInUrl() {
+    let p = extractUrlParams();
+
+    let string = ''
+
+    if (p['email'] && p['email'] !== "undefined")
+        string += ("&email=" + p['email']);
+    if (p['wv_email'] && p['wv_email'] !== "undefined")
+        string += ("&email=" + p['wv_email']);
+    if (p['wv_firstname'] && p['wv_firstname'] !== "undefined")
+        string += ("&firstname=" + p['wv_firstname']);
+    if (p['firstname'] && p['firstname'] !== "undefined")
+        string += ("&firstname=" + p['firstname']);
+    if (p['wv_lastname'] && p['wv_lastname'] !== "undefined")
+        string += ("&lastname=" + p['wv_lastname']);
+    if (p['lastname'] && p['lastname'] !== "undefined")
+        string += ("&lastname=" + p['lastname']);
+    if (p['reserved_code_media'] && p['reserved_code_media'] !== "undefined")
+        string += ("&reserved_code_media=" + p['reserved_code_media']);
+
+    string += "&lang=fr_FR"
+
+    return string
+}
+
 function fillLink() {
     let p = extractUrlParams();
 
@@ -181,22 +268,7 @@ function fillLink() {
 
     changeAmountDon(donateur)
 
-    if (p['email'] && p['email'] !== "undefined")
-        string += ("&email=" + p['email']);
-    if (p['wv_email'] && p['wv_email'] !== "undefined")
-        string += ("&email=" + p['wv_email']);
-    if (p['wv_firstname'] && p['wv_firstname'] !== "undefined")
-        string += ("&firstname=" + p['wv_firstname']);
-    if (p['firstname'] && p['firstname'] !== "undefined")
-        string += ("&firstname=" + p['firstname']);
-    if (p['wv_lastname'] && p['wv_lastname'] !== "undefined")
-        string += ("&lastname=" + p['wv_lastname']);
-    if (p['lastname'] && p['lastname'] !== "undefined")
-        string += ("&lastname=" + p['lastname']);
-    if (p['reserved_code_media'] && p['reserved_code_media'] !== "undefined")
-        string += ("&reserved_code_media=" + p['reserved_code_media']);
-
-    string += "&lang=fr_FR"
+    string += getUserInUrl()
     $('.link-don').each(function() {
         let src = $(this).attr('href');
         $(this).attr('href', src + string);
