@@ -127,9 +127,18 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 .header .nav {
 	z-index: 4;
 	width: 100%;
-	padding: 2%;
+	padding: 4px 2%;
 	position: fixed;
-	top: 20px;
+	top: 0;
+
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.header .nav .button {
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 .header .content {
 	display: none;
@@ -172,7 +181,16 @@ p, h1, h2, h3, h4, h5, h6, a, button, ul, li {
 	line-height: 1.2;
 	font-size: 36px;
 }
-
+#cutVideo {
+    z-index: 20;
+    color: white;
+    text-decoration: underline;
+    width: 200px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0; right: 0;
+    top: 30px;
+}
 #share {
     display: none;
     position: fixed;
@@ -641,13 +659,15 @@ footer {
 	margin-top: 0 !important;
 }
 @media screen and (max-width: 1024px) {
+    .header h1 {
+        font-size: 68px;
+    }
+    .header h1:nth-child(1) {
+        font-size: 28px;
+    }
 	.header .content {
-		padding-top: 180px;
+        padding-top: 40px;
 		z-index: 10;
-		transform: none;
-		position: relative;
-		width: 100%;
-		top: auto; left:  auto;
 	}
 
 	.bandeau-orange .left {
@@ -785,6 +805,9 @@ footer {
 		min-height: 720px;
         background-position: 40% 50%;
 	}
+    .box-don * {
+        transform: none !important;
+    }
 
 	.bandeau-orange .left p {
 		font-size: 20px;

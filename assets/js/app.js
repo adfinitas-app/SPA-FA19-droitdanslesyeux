@@ -16,9 +16,21 @@ $(document).ready( function() {
         $('.header .content').fadeIn('slow')
     }, 12000);
 
+    setTimeout(function(){
+        $('#cutVideo').fadeOut()
+    }, 22000);
+
     handleNavBar()
 
 });
+
+$('#cutVideo').click( function () {
+    var video = document.getElementById("videoBg");
+    video.currentTime = video.duration;
+    $('.header .content').fadeIn('slow')
+
+    $(this).fadeOut()
+})
 
 
 var checkBandeauOrange = false;
@@ -48,8 +60,10 @@ function handleNavBar() {
 function handleAnimate() {
     var height = $(window).scrollTop();
     var heightShare = $('#header').height()
+    var heightHistoires = $('#slide1').offset().top
     var heightBandeauOrange = $('#bandeau-orange').offset().top  - ($('#bandeau-orange').height())
     var heightBandeauWhite = $('#bandeau-white-first').offset().top / 4 - ($('#bandeau-white-first').height())
+    var don1 = $('#bandeau-don').offset().top
     var heightslide1 = $('#slide1').offset().top - ($('#slide1').height())
     var heightslide2 = $('#slide2').offset().top - ($('#slide2').height())
     var heightslide3 = $('#slide3').offset().top - ($('#slide3').height())
@@ -60,6 +74,17 @@ function handleAnimate() {
     else {
         $('#share').fadeOut()
     }
+
+    if (height < heightHistoires) {
+        $('.header .nav').css({'background-color':'transparent','display':'block'})
+    }
+    if (height > heightHistoires) {
+        $('.header .nav').css({'background-color':'white','display':'block'})
+    }
+    if (height > don1) {
+        $('.header .nav').hide()
+    }
+
     if(height  > heightBandeauOrange && !checkBandeauOrange) {
         animateNumber()
         checkBandeauOrange = true
