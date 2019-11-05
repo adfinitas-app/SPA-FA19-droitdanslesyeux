@@ -715,11 +715,15 @@ footer {
 
 }
 @media screen and (max-width: 640px) {
+    #cutVideo {
+        display: none !important;
+    }
     .header {
         background-image: url("https://heroku-adfinitas-campaign.s3.amazonaws.com/SPA-droitsdanslesyeux/bg-header-small.jpg");
         background-size: cover;
         background-position: center;
-        min-height: 100vh;
+        min-height: 585px;
+        height: 100vh;
         position: relative;
     }
 	.header h1 {
