@@ -14,11 +14,11 @@ $(document).ready( function() {
 
     setTimeout(function(){
         $('.header .content').fadeIn('slow')
-    }, 12000);
+    }, 5500);
 
     setTimeout(function(){
         $('#cutVideo').fadeOut()
-    }, 22000);
+    }, 16000);
 
     handleNavBar()
 
