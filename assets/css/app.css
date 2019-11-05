@@ -737,7 +737,7 @@ footer {
 
 @media screen and (max-height: 1200px) {
     .container-video {
-        padding-bottom: 0;
+        padding-bottom: 5%;
     }
 
 }
