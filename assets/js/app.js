@@ -80,6 +80,10 @@ function handleAnimate() {
     }
     if (height > heightHistoires) {
         $('.header .nav').css({'background-color':'white','display':'block'})
+        $('#share').css({'background-color':'white'})
+    }
+    else {
+        $('#share').css({'background-color':'transparent'})
     }
     if (height > don1) {
         $('.header .nav').hide()
