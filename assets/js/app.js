@@ -273,8 +273,6 @@ function getUserInUrl() {
         string += ("&lastname=" + p['wv_lastname']);
     if (p['lastname'] && p['lastname'] !== "undefined")
         string += ("&lastname=" + p['lastname']);
-    if (p['reserved_code_media'] && p['reserved_code_media'] !== "undefined")
-        string += ("&reserved_code_media=" + p['reserved_code_media']);
 
     string += "&lang=fr_FR"
 
