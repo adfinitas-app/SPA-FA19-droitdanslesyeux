@@ -243,14 +243,16 @@ function scrollNext(next) {
 
 function changeAmountDon(donateur) {
     if (donateur) {
-        $('#nb1').text('90')
-        $('#small-nb1').text('31')
+        $('#nb1').text('120')
+        $('#small-nb1').text('41')
+        $('#equi1').html('<span>J’offre à un animal le droit d’être nourri et soigné&nbsp;!</span><br />4 mois de soins vétérinaires pour un chien.')
 
-        $('#nb2').text('120')
-        $('#small-nb2').text('41')
+        $('#nb2').text('90')
+        $('#small-nb2').text('31')
+        $('#equi2').html('<span>J’offre à un animal le droit d’être nourri&nbsp;!</span><br />1 an de nourriture pour chat.')
 
         $('#nb3').text('170')
-        $('#small-nb3').text('54')
+        $('#small-nb3').text('58')
     }
 }
 
@@ -283,17 +285,22 @@ function fillLink() {
     let p = extractUrlParams();
 
     let string = "";
-    let donateur = true;
+    let code_media = "";
+    let donateur = false;
 
     if (p['reserved_code_media'] && p['reserved_code_media'] !== "undefined") {
-        if (p['reserved_code_media'].indexOf("W19P") !== -1 || p['reserved_code_media'] === "") //PROSPECT
-            donateur = false;
+        code_media = p['reserved_code_media'];
+        if (p['reserved_code_media'].indexOf("W19F") !== -1) //PROSPECT
+            donateur = true;
+    }
+    else {
+        code_media = 'W19PP0ZZ'
     }
 
     if (donateur)
-        string += "?cid=" + 228;
+        string += "?cid=228&reserved_code_media=" + code_media;
     else
-        string += "?cid=" + 229;
+        string += "?cid=229&reserved_code_media=" + code_media;
 
     changeAmountDon(donateur)
 
