@@ -245,11 +245,11 @@ function changeAmountDon(donateur) {
     if (donateur) {
         $('#nb1').text('120')
         $('#small-nb1').text('41')
-        $('#equi1').html('<span>J’offre à un animal le droit d’être nourri et soigné&nbsp;!</span><br />4 mois de soins vétérinaires pour un chien.')
+        $('#equi-1').html('<span>J’offre à un animal le droit d’être nourri et soigné&nbsp;!</span><br />4 mois de soins vétérinaires pour un chien.')
 
         $('#nb2').text('90')
         $('#small-nb2').text('31')
-        $('#equi2').html('<span>J’offre à un animal le droit d’être nourri&nbsp;!</span><br />1 an de nourriture pour chat.')
+        $('#equi-2').html('<span>J’offre à un animal le droit d’être nourri&nbsp;!</span><br />1 an de nourriture pour chat.')
 
         $('#nb3').text('170')
         $('#small-nb3').text('58')
