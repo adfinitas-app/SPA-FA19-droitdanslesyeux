@@ -90,7 +90,6 @@ function handleAnimate() {
     }
 
     if(height  > heightBandeauOrange && !checkBandeauOrange) {
-        animateNumber()
         checkBandeauOrange = true
     }
     if(height > heightBandeauWhite && !checkBandeauWhite) {
