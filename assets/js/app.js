@@ -133,10 +133,18 @@ var imgCheck = [
 ]
 
 function changeLinkTShirt(mode) {
+    let p = extractUrlParams();
     let string = 'https://soutenir.la-spa.fr/b'
+    let code_media
+
+    if (p['reserved_code_media'] && p['reserved_code_media'] !== "undefined") {
+        code_media = p['reserved_code_media'];
+    }
+    else
+        code_media ='W19PP0ZZL'
 
     if (mode === 0) { //CHIEN
-        string += '?cid=231'
+        string += '?cid=231&reserved_code_media=' + code_media
         string += getUserInUrl()
 
         $('#check1').attr('src', imgCheck[0])
@@ -146,7 +154,7 @@ function changeLinkTShirt(mode) {
         $('#don-tshirt').attr('href', string)
     }
     else { //CHAT
-        string += '?cid=232'
+        string += '?cid=232&reserved_code_media=' + code_media
         string += getUserInUrl()
 
         $('#check1').attr('src', imgCheck[1])
@@ -282,43 +290,35 @@ function fillLink() {
     let p = extractUrlParams();
 
     let string = "";
-    let string_tshirt = "";
     let code_media = "";
-    let code_media_tshirt = "";
     let donateur = false;
 
     if (p['reserved_code_media'] && p['reserved_code_media'] !== "undefined") {
         code_media = p['reserved_code_media'];
-        code_media_tshirt = p['reserved_code_media'];
         if (p['reserved_code_media'].indexOf("W19F") !== -1) //PROSPECT
             donateur = true;
     }
     else {
         code_media = 'W19PP0ZZ'
-        code_media_tshirt = 'W19PP0ZZL'
     }
 
     if (donateur) {
         string += "?cid=228&reserved_code_media=" + code_media;
-        string_tshirt += "?cid=228&reserved_code_media=" + code_media_tshirt;
     }
     else {
         string += "?cid=229&reserved_code_media=" + code_media;
-        string_tshirt += "?cid=229&reserved_code_media=" + code_media_tshirt;
     }
 
     changeAmountDon(donateur)
 
     string += getUserInUrl()
-    string_tshirt += getUserInUrl()
 
     $('.link-don').each(function() {
         let src = $(this).attr('href');
         $(this).attr('href', src + string);
     });
 
-    const link_tshirt = $('#don-tshirt').attr('href') + string_tshirt
-    $('#don-tshirt').attr('href', link_tshirt);
+
     // lvl link 1, 2, 3
 
     $('.link-don.un').each(function() {
