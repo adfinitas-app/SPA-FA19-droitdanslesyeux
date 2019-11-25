@@ -282,31 +282,43 @@ function fillLink() {
     let p = extractUrlParams();
 
     let string = "";
+    let string_tshirt = "";
     let code_media = "";
+    let code_media_tshirt = "";
     let donateur = false;
 
     if (p['reserved_code_media'] && p['reserved_code_media'] !== "undefined") {
         code_media = p['reserved_code_media'];
+        code_media_tshirt = p['reserved_code_media'];
         if (p['reserved_code_media'].indexOf("W19F") !== -1) //PROSPECT
             donateur = true;
     }
     else {
         code_media = 'W19PP0ZZ'
+        code_media_tshirt = 'W19PP0ZZL'
     }
 
-    if (donateur)
+    if (donateur) {
         string += "?cid=228&reserved_code_media=" + code_media;
-    else
+        string_tshirt += "?cid=228&reserved_code_media=" + code_media_tshirt;
+    }
+    else {
         string += "?cid=229&reserved_code_media=" + code_media;
+        string_tshirt += "?cid=229&reserved_code_media=" + code_media_tshirt;
+    }
 
     changeAmountDon(donateur)
 
     string += getUserInUrl()
+    string_tshirt += getUserInUrl()
+
     $('.link-don').each(function() {
         let src = $(this).attr('href');
         $(this).attr('href', src + string);
     });
 
+    const link_tshirt = $('#don-tshirt').attr('href') + string_tshirt
+    $('#don-tshirt').attr('href', link_tshirt);
     // lvl link 1, 2, 3
 
     $('.link-don.un').each(function() {
